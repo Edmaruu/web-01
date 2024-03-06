@@ -18,7 +18,11 @@ const path = require("path");
     optimization: {
       minimize: false,
     },
-    module: {
-      rules: [],
+    module: {rules: [
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
     },
   };
