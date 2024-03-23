@@ -10,7 +10,7 @@
   // TODO #class: turn function into a method of WelcomeComponent
   /* method WelcomeComponent.init */
   WelcomeComponent.prototype.init = function init() {
-    var form = document.querySelector("form.form-signin");
+    let form = document.querySelector("form.form-signin");
     form.addEventListener(
       "submit",
       // TODO #arrow-function: use arrow function instead.
@@ -20,8 +20,8 @@
           event.stopPropagation();
           form.classList.add("was-validated");
         } else {
-          var name = event.srcElement.querySelector("#nickname").value;
-          var size = parseInt(event.srcElement.querySelector("#size").value);
+          let name = event.srcElement.querySelector("#nickname").value;
+          let size = parseInt(event.srcElement.querySelector("#size").value);
 
           _startGame(name, size);
         }
@@ -35,7 +35,7 @@
   // TODO #class: turn function into a method of WelcomeComponent
   function _startGame(name, size) {
     // TODO #spa: replace with './#game'
-    var gamePage = "./#game";
+    let gamePage = "./#game";
     // TODO #template-literals:  use template literals (backquotes)
     window.location = gamePage + "?name=" + name + "&size=" + size;
   }
