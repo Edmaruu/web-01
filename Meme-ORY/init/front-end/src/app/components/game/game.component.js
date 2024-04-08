@@ -1,13 +1,10 @@
-import { parseUrl } from "./utils";
-import template from "../views/game.html";
-import { Component } from "./component";
-let CARD_TEMPLATE = ""
-  .concat('<main class="card-cmp">')
-  .concat('  <div class="card-wrapper">')
-  .concat('    <img class="card front-face" alt="card" />')
-  .concat('    <img class="card back-face" alt="card" />')
-  .concat("  </div>")
-  .concat("</main>");
+import { parseUrl } from "../../scripts/utils";
+import template from "./game.component.html";
+import { Component } from "../../scripts/component";
+import { CardComponent } from "./card/card.component";
+import "./game.component.css"
+import "./card/card.component.html";
+import "./card/card.component.css";
 
 
   let environment = {
@@ -158,67 +155,7 @@ let CARD_TEMPLATE = ""
     }
   }
 
-
-  // TODO #card-component: Change images location to /app/components/game/card/assets/***.png
-  // TODO #import-assets: use ES default import to import images.
-  let CARDS_IMAGE = [
-    "/src/assets/cards/back.png",
-    "/src/assets/cards/card-0.png",
-    "/src/assets/cards/card-1.png",
-    "/src/assets/cards/card-2.png",
-    "/src/assets/cards/card-3.png",
-    "/src/assets/cards/card-4.png",
-    "/src/assets/cards/card-5.png",
-    "/src/assets/cards/card-6.png",
-    "/src/assets/cards/card-7.png",
-    "/src/assets/cards/card-8.png",
-    "/src/assets/cards/card-9.png",
-  ];
-
-
-  /* class CardComponent constructor */
-  class CardComponent extends Component{
-    constructor(id){
-    super(template)
-    // is this card flipped?
-    this._flipped = false;
-    this.template = CARD_TEMPLATE;
-
-    // has the matching card has been discovered already?
-    this.matched = false;
-
-    this._elt = document.createElement("div");
-    this._elt.innerHTML = this.template;
-    this._elt = this._elt.firstElementChild;
-    this._id = id;
-
-    this._imageElt = this.getElement().querySelector(".card-wrapper");
-    this._imageElt.querySelector("img.front-face").src =
-      CARDS_IMAGE[this._id + 1];
-    this._imageElt.querySelector("img.back-face").src = CARDS_IMAGE[0];
-    }
-    /* method CardComponent.getElement */
-    getElement(){
-      return this._elt;
-    }
-    /* method CardComponent.flip */
-    flip(){
-      this._imageElt.classList.toggle("flip");
-      this._flipped = !this._flipped;
-    }
-    /* method CardComponent.equals */
-    equals(card) {
-      return card._id === this._id;
-    }
-    get flipped() {
-      return this._flipped;
-    }
   
-    set flipped(_flipped) {
-      this._flipped = _flipped;
-    }
-  }
 
 
-
-
+ 
