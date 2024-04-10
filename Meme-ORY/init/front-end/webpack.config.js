@@ -37,6 +37,10 @@ const path = require("path");
           },
         },
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        type: 'asset/resource'
+      },
     ],
     },
   };

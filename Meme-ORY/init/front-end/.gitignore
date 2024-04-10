@@ -1,0 +1,3 @@
+node_modules/ #ignore tout ce qui est dans node_modules
+dist/ #ignore tout ce qu'il y a dans dist
+.vscode/
